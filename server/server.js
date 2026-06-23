@@ -9,7 +9,7 @@ const authRoutes = require("./routes/authRoutes");
 const roomRoutes =
 require("./routes/roomRoutes");
 const app = express();
-
+const PORT=process.env.PORT|| 5000
 connectDB();
 
 app.use(cors({origin: true,credentials: true}));
@@ -89,10 +89,10 @@ io.on(
 );
 
 server.listen(
-    process.env.PORT,
+    PORT,
     ()=>{
         console.log(
-            `Server Started on Port ${process.env.PORT}`
+            `Server Started on Port ${PORT}`
         );
     }
 );
