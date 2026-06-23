@@ -13,7 +13,7 @@ export default function Profile() {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/auth/me", { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`, { headers: { Authorization: token } });
       setProfile(res.data);
     } catch (err) { console.log(err); }
     finally { setLoading(false); }

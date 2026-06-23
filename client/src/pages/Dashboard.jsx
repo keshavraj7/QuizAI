@@ -21,8 +21,8 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
       const [quizRes, roomRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/quiz/my-quizzes", { headers: { Authorization: token } }),
-        axios.get("http://localhost:5000/api/room/my-rooms", { headers: { Authorization: token } }),
+        axios.get(`${import.meta.env.VITE_API_URL}/api/quiz/my-quizzes`, { headers: { Authorization: token } }),
+        axios.get(`${import.meta.env.VITE_API_URL}/api/room/my-rooms`, { headers: { Authorization: token } }),
       ]);
       setQuizzes(quizRes.data);
       setRooms(roomRes.data);
@@ -36,7 +36,7 @@ export default function Dashboard() {
   const createRoom = async (quizId) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post(`http://localhost:5000/api/room/create/${quizId}`, {}, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/room/create/${quizId}`, {}, {
         headers: { Authorization: token },
       });
       navigate(`/room/${res.data.room.roomCode}`);

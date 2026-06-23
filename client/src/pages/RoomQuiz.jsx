@@ -21,7 +21,7 @@ export default function RoomQuiz() {
   const fetchRoom = async () => {
     try {
       const token = localStorage.getItem("token");
-      const roomRes = await axios.get(`http://localhost:5000/api/room/${roomCode}`, { headers: { Authorization: token } });
+      const roomRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/room/${roomCode}`, { headers: { Authorization: token } });
 
       const alreadySubmitted = roomRes.data.submittedUsers?.some(u => u._id.toString() === userId);
       if (alreadySubmitted) { navigate(`/room/${roomCode}/leaderboard`); return; }
@@ -33,7 +33,7 @@ export default function RoomQuiz() {
       const startApprox = end - roomRes.data.duration * 60 * 1000;
       totalDurationRef.current = end - startApprox;
 
-      const quizRes = await axios.get(`http://localhost:5000/api/quiz/${roomRes.data.quizId._id}`, { headers: { Authorization: token } });
+      const quizRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/quiz/${roomRes.data.quizId._id}`, { headers: { Authorization: token } });
       setQuiz(quizRes.data);
     } catch (err) { console.log(err); }
   };
@@ -72,7 +72,7 @@ export default function RoomQuiz() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/room/submit/${roomCode}`,
+        `${import.meta.env.VITE_API_URL}/api/room/submit/${roomCode}`,
         { answers: answersRef.current },
         { headers: { Authorization: token } }
       );

@@ -13,7 +13,7 @@ export default function Analysis() {
   const fetchAnalysis = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/room/analysis/${roomCode}`, { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/room/analysis/${roomCode}`, { headers: { Authorization: token } });
       setAnalysis(res.data);
     } catch (err) { console.log(err); }
   };

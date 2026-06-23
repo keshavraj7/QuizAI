@@ -37,8 +37,8 @@ export default function RoomLeaderboard() {
     try {
       const token = localStorage.getItem("token");
       const [leaderRes, roomRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/room/leaderboard/${roomCode}`, { headers: { Authorization: token } }),
-        axios.get(`http://localhost:5000/api/room/${roomCode}`, { headers: { Authorization: token } }),
+        axios.get(`${import.meta.env.VITE_API_URL}/api/room/leaderboard/${roomCode}`, { headers: { Authorization: token } }),
+        axios.get(`${import.meta.env.VITE_API_URL}/api/room/${roomCode}`, { headers: { Authorization: token } }),
       ]);
       setLeaders(leaderRes.data);
       setRoom(roomRes.data);

@@ -36,14 +36,14 @@ export default function Navbar() {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auth/me", { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`, { headers: { Authorization: token } });
       setUser(res.data);
     } catch {}
   };
 
   const fetchActiveRoom = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auth/active-room", { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/active-room`, { headers: { Authorization: token } });
       setActiveRoom(res.data);
     } catch { setActiveRoom(null); }
   };

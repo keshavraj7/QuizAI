@@ -16,7 +16,7 @@ export default function JoinTest() {
       setError("");
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/room/join",
+        `${import.meta.env.VITE_API_URL}/api/room/join`,
         { roomCode },
         { headers: { Authorization: token } }
       );

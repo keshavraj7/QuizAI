@@ -16,7 +16,7 @@ export default function QuizPage() {
   const fetchQuiz = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/quiz/${id}`, { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/quiz/${id}`, { headers: { Authorization: token } });
       setQuiz(res.data);
     } catch (err) { console.log(err); }
   };

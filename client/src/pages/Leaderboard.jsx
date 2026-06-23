@@ -17,7 +17,7 @@ export default function Leaderboard() {
   const fetchLeaderboard = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/quiz/${id}/leaderboard`, { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/quiz/${id}/leaderboard`, { headers: { Authorization: token } });
       setLeaders(res.data);
     } catch (err) { console.log(err); }
     finally { setLoading(false); }

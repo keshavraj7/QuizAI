@@ -32,7 +32,7 @@ export default function Room() {
   const fetchRoom = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/room/${roomCode}`, { headers: { Authorization: token } });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/room/${roomCode}`, { headers: { Authorization: token } });
 
       const alreadySubmitted = res.data.submittedUsers?.some(user => user._id === userId);
       if (alreadySubmitted) { navigate(`/room/${roomCode}/leaderboard`); return; }
@@ -48,14 +48,14 @@ export default function Room() {
   const saveDuration = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/room/duration/${roomCode}`, { duration }, { headers: { Authorization: token } });
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/room/duration/${roomCode}`, { duration }, { headers: { Authorization: token } });
     } catch (err) { console.log(err); }
   };
 
   const startQuiz = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post(`http://localhost:5000/api/room/start/${roomCode}`, {}, { headers: { Authorization: token } });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/room/start/${roomCode}`, {}, { headers: { Authorization: token } });
       fetchRoom();
     } catch (err) {
       alert(err.response?.data?.message);

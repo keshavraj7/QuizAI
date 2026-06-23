@@ -43,7 +43,7 @@ const [instructions, setInstructions] =useState("");
         else{
           formData.append("subject",subject);
         }
-        const res = await axios.post("http://localhost:5000/api/quiz/generate",formData,
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/quiz/generate`,formData,
           {
             headers:{
               Authorization:token
