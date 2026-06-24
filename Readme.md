@@ -120,16 +120,62 @@ QuizAI/
 ---
 
 
-## 📸 Screenshots
+##  Screenshots
 
+###  Home Page
 
-* Home Page
-* Create Quiz Page
-* PDF Upload Workflow
-* Live Room Interface
-* Leaderboard
-* Quiz Analysis
+![Home Page](./screenshots/home.png)
 
+Brief description of the landing page and available features.
+
+---
+
+###  Dashboard Page
+
+![Home Page](./screenshots/dashboard.png)
+
+Shows created quizzes by the user and hosted/joined rooms.
+
+---
+
+###  Create Quiz
+
+![Create Quiz](./screenshots/create-quiz.png)
+
+Generate quizzes from topics, PDFs, and custom instructions.
+
+---
+
+###  Live Quiz Room
+
+![Live Room](./screenshots/live-room.png)
+
+![Live Quiz Room](./screenshots/live-quiz-room.png)
+
+Real-time multiplayer quiz rooms powered by Socket.IO.
+
+---
+
+###  Leaderboard
+
+![Leaderboard](./screenshots/leaderboard.png)
+
+Rank participants based on quiz performance and completion.
+
+---
+
+###  Quiz Analysis
+
+![Analysis](./screenshots/analysis.png)
+
+Review answers, compare performance, and identify mistakes.
+---
+
+###  Profile Page
+
+![Analysis](./screenshots/profile.png)
+
+Shows overall stats of the user.
 ---
 
 ## 🔮 Future Enhancements
@@ -142,6 +188,6 @@ QuizAI/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Keshav Raj**
