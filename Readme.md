@@ -6,7 +6,7 @@ Whether you're preparing for exams, revising lecture notes, conducting classroom
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Website
 
 Visit the application:
 
